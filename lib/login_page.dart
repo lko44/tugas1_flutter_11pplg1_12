@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:latihan1_11pplg1/home_page.dart';
 import 'package:latihan1_11pplg1/register_page.dart';
 import 'package:latihan1_11pplg1/widgets/button.dart';
+import 'package:latihan1_11pplg1/widgets/widget_textField.dart';
 import 'function/user_data.dart';
 
 class LoginPage extends StatefulWidget {
@@ -78,24 +79,26 @@ class _LoginPageState extends State<LoginPage> {
               fit: BoxFit.cover, // atur cara gambar "mengisi" area
             ),
 
-            Container(
-              margin: EdgeInsets.only(top: 20, bottom: 20),
-              child: TextField(
-                controller: _usernamebenar,
-                decoration: InputDecoration(
-                  labelText: "Username",
-                  border: OutlineInputBorder(),
-                ),
-              ),
+            // Container(
+            //   margin: EdgeInsets.only(top: 20, bottom: 20),
+            //   child: TextField(
+            //     controller: _usernamebenar,
+            //     decoration: InputDecoration(
+            //       labelText: "Username",
+            //       border: OutlineInputBorder(),
+            //     ),
+            //   ),
+            // ),
+            MytextField(
+              textEditingController: _usernamebenar,
+              hint: "Uername",
+              label: "Username",
             ),
             // style : hint, hidden char for password
-            TextField(
-              controller: _passwordbenar,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: "Password",
-                border: OutlineInputBorder(),
-              ),
+            MytextField(
+              textEditingController: _passwordbenar,
+              hint: "Password",
+              label: "Password",
             ),
             Center(
               child: Column(
@@ -106,7 +109,8 @@ class _LoginPageState extends State<LoginPage> {
 
                   // Tombol Login
                   CustomButton(
-                    text: "LOGIN",
+                    text: "Login",
+                    textcolor: Colors.green,
                     onPressed: () {
                       final username = _usernamebenar.text.trim();
                       final password = _passwordbenar.text.trim();
@@ -144,25 +148,9 @@ class _LoginPageState extends State<LoginPage> {
                       }
                     },
                   ),
-
-                  const SizedBox(height: 20),
-
-                  // Teks info
-                  const Text(
-                    "Belum punya akun?",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors
-                          .blueAccent, // Or your app's primary/accent color
-                      fontWeight: FontWeight.w600, // Slightly bolder
-                    ),
-                  ),
-
-                  const SizedBox(height: 20),
-
-                  // Tombol Register
                   CustomButton(
                     text: "Register",
+                    textcolor: Colors.blue,
                     onPressed: () {
                       Navigator.push(
                         context,

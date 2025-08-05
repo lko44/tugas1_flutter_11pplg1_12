@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latihan1_11pplg1/login_page.dart';
 import 'package:latihan1_11pplg1/widgets/button.dart';
 import 'function/user_data.dart';
 
@@ -162,7 +163,11 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 30),
 
               // Tombol Register
-              CustomButton(text: "DAFTAR", onPressed: _handleRegister),
+              CustomButton(
+                text: "Register!",
+                textcolor: Colors.black,
+                onPressed: _handleRegister,
+              ),
             ],
           ),
         ),
