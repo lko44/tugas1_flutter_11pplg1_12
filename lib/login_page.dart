@@ -89,16 +89,16 @@ class _LoginPageState extends State<LoginPage> {
             //     ),
             //   ),
             // ),
-            MytextField(
+            MyTextField(
               textEditingController: _usernamebenar,
-              hint: "Uername",
-              label: "Username",
+              
+              label: "Username", isObscured: false,
             ),
             // style : hint, hidden char for password
-            MytextField(
+            MyTextField(
               textEditingController: _passwordbenar,
-              hint: "Password",
-              label: "Password",
+              
+              label: "Password", isObscured: false,
             ),
             Center(
               child: Column(
