@@ -21,7 +21,7 @@ class CalculatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Something")),
+      appBar: AppBar(title: Text("CALCULATOR")),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -85,13 +85,6 @@ class CalculatorPage extends StatelessWidget {
           Obx(() {
             return Text("Hasil: " + calculatorController.Hasil.value);
           }),
-          CustomButton(
-            text: "Move to Football Player",
-            textcolor: Colors.black,
-            onPressed: () {
-              Get.toNamed(AppRoutes.footballplayers);
-            },
-          ),
         ],
       ),
     );

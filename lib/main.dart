@@ -23,9 +23,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       // home: CalculatorPage(),
-      initialRoute: AppRoutes.calculator,
+      initialRoute: AppRoutes.navbar,
       getPages: AppPages.pages,
     );
   }
 }
-
