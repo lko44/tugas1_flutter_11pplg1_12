@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:latihan1_11pplg1/login_page.dart';
-import 'package:latihan1_11pplg1/pages/calculator_page.dart';
+import 'package:latihan1_11pplg1/bindings/football_binding.dart';
+import 'package:latihan1_11pplg1/bindings/splashscreen_binding.dart';
 import 'package:latihan1_11pplg1/routes/pages.dart';
 import 'package:latihan1_11pplg1/routes/routes.dart';
-
-
 
 void main() {
   runApp(const MyApp());
@@ -23,8 +21,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       // home: CalculatorPage(),
-      initialRoute: AppRoutes.navbar,
+      initialRoute: AppRoutes.footballmobile,
       getPages: AppPages.pages,
+      initialBinding: FootballBinding(),
     );
   }
 }

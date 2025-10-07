@@ -4,15 +4,20 @@ class MyTextField extends StatelessWidget {
   final TextEditingController textEditingController;
   final String label;
   final bool isObscured;
+  final Color maincolor;
+  final Color fillcolor;
   final ValueChanged<String>? onChanged;
 
   const MyTextField({
     super.key,
     required this.textEditingController,
-    required this.label,
-    required this.isObscured,
     this.onChanged,
+    this.label = "default",
+    this.isObscured = false,
+    this.maincolor = Colors.blue,
+    this.fillcolor = Colors.white,
   });
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,20 +27,20 @@ class MyTextField extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(color: Colors.green[700]),
+        labelStyle: TextStyle(color: maincolor),
         filled: true,
-        fillColor: Colors.white,
+        fillColor: fillcolor,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.green[300]!),
+          borderSide: BorderSide(color: maincolor),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.green[300]!),
+          borderSide: BorderSide(color: maincolor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.green[700]!, width: 2),
+          borderSide: BorderSide(color: maincolor, width: 2),
         ),
       ),
     );

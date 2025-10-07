@@ -50,7 +50,7 @@ class ProfilePage extends StatelessWidget {
               ),
               child: ListTile(
                 leading: const Icon(Icons.school, color: Colors.blueAccent),
-                title: const Text("Kelas 10 PPLG 1"),
+                title: const Text("Kelas 11 PPLG 1"),
                 subtitle: const Text("Nomor Absen: 12"),
               ),
             ),

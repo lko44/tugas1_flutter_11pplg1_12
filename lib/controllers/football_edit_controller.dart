@@ -1,28 +1,34 @@
+import 'package:flutter/material.dart';
 import 'football_controller.dart';
 import 'package:latihan1_11pplg1/models/football_model.dart';
 import 'package:get/get.dart';
 
-class FootballEditController extends GetxController{
-  //late since its not assigned yet
+class FootballEditController extends GetxController {
   late int index;
   late Rx<FootballPlayer> player;
-  //find my controllers
   final FootballController footballController = Get.find();
 
-  //on initiate
+  // text editing controllers
+  late TextEditingController nameController;
+  late TextEditingController positionController;
+  late TextEditingController numberController;
+
   @override
   void onInit() {
     super.onInit();
 
-    //retrieve arguments that got passed from football page
     final args = Get.arguments as Map<String, dynamic>;
     index = args['index'] as int;
     FootballPlayer initialPlayer = args['player'] as FootballPlayer;
 
     player = initialPlayer.obs;
+
+    // assign to textcontrollers
+    nameController = TextEditingController(text: initialPlayer.name);
+    positionController = TextEditingController(text: initialPlayer.position);
+    numberController = TextEditingController(text: initialPlayer.number.toString());
   }
 
-  //update functions, yay
   void updateName(String value) => player.update((p) {
         if (p != null) p.name = value;
       });
@@ -37,8 +43,14 @@ class FootballEditController extends GetxController{
 
   void saveChanges() {
     footballController.updatePlayer(index, player.value);
+    Get.back();
+  }
+
+  @override
+  void onClose() {
+    nameController.dispose();
+    positionController.dispose();
+    numberController.dispose();
+    super.onClose();
   }
 }
-
-
-

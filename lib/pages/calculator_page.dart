@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan1_11pplg1/pages/controllers/calculator_controller.dart';
+import 'package:latihan1_11pplg1/controllers/calculator_controller.dart';
+import 'package:latihan1_11pplg1/pages/football_page.dart';
 import 'package:latihan1_11pplg1/routes/routes.dart';
 import 'package:latihan1_11pplg1/widgets/button.dart';
 import 'package:latihan1_11pplg1/widgets/widget_textField.dart';
@@ -8,9 +9,12 @@ import 'package:get/get.dart';
 class CalculatorPage extends StatelessWidget {
   CalculatorPage({super.key});
 
-  final CalculatorController calculatorController = Get.put(
-    CalculatorController(),
-  );
+  // final CalculatorController calculatorController = Get.put(
+  //   CalculatorController(),
+  // );
+
+  final calculatorController = Get.find<CalculatorController>();
+  // tidak perlu inject atau declare lagi, sudah di binding
 
   void _clearFields() {
     calculatorController.txtAngka1.clear();
@@ -85,6 +89,13 @@ class CalculatorPage extends StatelessWidget {
           Obx(() {
             return Text("Hasil: " + calculatorController.Hasil.value);
           }),
+          CustomButton(
+            text: "to football",
+            textcolor: Colors.blue,
+            onPressed: () {
+              Get.toNamed(AppRoutes.footballplayers);
+            },
+          ),
         ],
       ),
     );

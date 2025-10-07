@@ -9,9 +9,9 @@ android {
     namespace = "com.example.latihan1_11pplg1"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
-        compileSdk = 34
+        compileSdk = 35
 
-    ndkVersion = "25.1.8937393" // ⬅ Tambahkan ini
+    ndkVersion = "27.0.12077973" // ⬅ Tambahkan ini
 
     defaultConfig {
         applicationId = "com.example.yourapp"

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:latihan1_11pplg1/pages/controllers/bottom_nav_controller.dart';
+import 'package:latihan1_11pplg1/fragments/home_fragment.dart';
+import 'package:latihan1_11pplg1/controllers/bottom_nav_controller.dart';
 import 'calculator_page.dart';
 import 'football_page.dart';
 import 'profile_page.dart';
@@ -11,6 +12,7 @@ class BottomNavPage extends StatelessWidget {
   final BottomNavController controller = Get.put(BottomNavController());
 
   final List<Widget> pages = [
+    HomeFragments(),
     CalculatorPage(),
     FootballPage(),
     ProfilePage(),
@@ -38,12 +40,16 @@ class BottomNavPage extends StatelessWidget {
               elevation: 0,
               items: const [
                 BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: "Home",
+                ),
+                BottomNavigationBarItem(
                   icon: Icon(Icons.calculate),
-                  label: "CALC",
+                  label: "Calculator",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.sports_soccer),
-                  label: "PLAYERS",
+                  label: "players",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.person),

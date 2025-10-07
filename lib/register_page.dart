@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan1_11pplg1/login_page.dart';
+import 'package:latihan1_11pplg1/pages/login_page.dart';
 import 'package:latihan1_11pplg1/widgets/button.dart';
 import 'function/user_data.dart';
 
