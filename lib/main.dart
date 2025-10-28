@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg1/bindings/football_binding.dart';
-import 'package:latihan1_11pplg1/bindings/splashscreen_binding.dart';
 import 'package:latihan1_11pplg1/routes/pages.dart';
 import 'package:latihan1_11pplg1/routes/routes.dart';
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       // home: CalculatorPage(),
-      initialRoute: AppRoutes.footballmobile,
+      initialRoute: AppRoutes.splashscreen,
       getPages: AppPages.pages,
       initialBinding: FootballBinding(),
     );

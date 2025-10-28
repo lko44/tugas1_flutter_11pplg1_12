@@ -12,5 +12,8 @@ class AppRoutes{
   static const examplescreen = "/examplescreen";
   static const footballmobile = "/footballmobile";
   static const footballwidescreen = "/footballwidescreen";
+  static const loginapi = "/loginapi";
+  static const hsrClist = "/hsrClist";
+  static const umaClist = "/umaClist";
   //others here
 }

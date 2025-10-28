@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final Color textcolor;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
+  final bool isLoading;
 
   const CustomButton({
     super.key,
     required this.text,
     required this.textcolor,
-    required this.onPressed,
+    this.onPressed,
+    this.isLoading = false, // default false biar gak wajib diisi
   });
 
   @override
@@ -21,15 +23,24 @@ class CustomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 3,
       ),
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: TextStyle(
-          color: textcolor,
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+      onPressed: isLoading ? null : onPressed, // disable tombol saat loading
+      child: isLoading
+          ? const SizedBox(
+              height: 20,
+              width: 20,
+              child: CircularProgressIndicator(
+                color: Colors.white,
+                strokeWidth: 2,
+              ),
+            )
+          : Text(
+              text,
+              style: TextStyle(
+                color: textcolor,
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
     );
   }
 }

@@ -5,10 +5,15 @@ import 'package:latihan1_11pplg1/bindings/example_binding.dart';
 import 'package:latihan1_11pplg1/bindings/football_binding.dart';
 import 'package:latihan1_11pplg1/bindings/football_edit_binding.dart';
 import 'package:latihan1_11pplg1/bindings/football_responsicve_binding.dart';
+import 'package:latihan1_11pplg1/bindings/hsr_list_binding.dart';
+import 'package:latihan1_11pplg1/bindings/login_api_binding.dart';
 import 'package:latihan1_11pplg1/bindings/login_binding.dart';
 import 'package:latihan1_11pplg1/bindings/splashscreen_binding.dart';
+import 'package:latihan1_11pplg1/bindings/uma_binding.dart';
 import 'package:latihan1_11pplg1/pages/contact_page.dart';
 import 'package:latihan1_11pplg1/pages/example_page.dart';
+import 'package:latihan1_11pplg1/pages/hsr_list_page.dart';
+import 'package:latihan1_11pplg1/pages/login_api_page.dart';
 import 'package:latihan1_11pplg1/pages/login_page.dart';
 import 'package:latihan1_11pplg1/pages/bottom_nav_page.dart';
 import 'package:latihan1_11pplg1/pages/calculator_page.dart';
@@ -18,6 +23,7 @@ import 'package:latihan1_11pplg1/pages/main_menu_page.dart';
 import 'package:latihan1_11pplg1/pages/mobile/football_mobile_page.dart';
 import 'package:latihan1_11pplg1/pages/profile_page.dart';
 import 'package:latihan1_11pplg1/pages/spalshscreen_page.dart';
+import 'package:latihan1_11pplg1/pages/uma_list_page.dart';
 import 'package:latihan1_11pplg1/routes/routes.dart';
 
 class AppPages {
@@ -65,6 +71,23 @@ class AppPages {
       name: AppRoutes.footballmobile,
       page: () => FootballPage(),
       binding: FootballResponsicveBinding(),
+    ),
+    
+    GetPage(
+      name: AppRoutes.loginapi,
+      page: () => LoginApiPage(),
+      binding: LoginApiBinding(),
+    ),
+    
+    GetPage(
+      name: AppRoutes.hsrClist,
+      page: () => HsrListPage(),
+      binding: HsrListBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.umaClist,
+      page: () => UmaListPage(),
+      binding: UmaBinding(),
     ),
 
   ];
