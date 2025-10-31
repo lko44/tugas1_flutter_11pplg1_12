@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "554181678051",
+    "project_id": "fluttetproject11pplg1",
+    "storage_bucket": "fluttetproject11pplg1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554181678051:android:d3a9174a727f40fe1846d6",
+        "android_client_info": {
+          "package_name": "com.example.latihan1_11pplg1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkQPUNrVHMNRHlqSNPfLMsJA35zQWitt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

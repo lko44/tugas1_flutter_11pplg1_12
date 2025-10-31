@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg1/models/clientnetwork.dart';
@@ -78,17 +79,25 @@ class LoginApiController extends GetxController {
   }
 
   // 🔹 LOGOUT
-  Future<void> logout() async {
-    Get.defaultDialog(
-      title: "Konfirmasi",
-      middleText: "Apakah kamu yakin ingin Log out? :(",
-      textCancel: "NO",
-      textConfirm: "Yes",
-      confirmTextColor: Colors.white,
-      onConfirm: () async {
-        Get.offAllNamed(AppRoutes.loginapi); // Close the dialog
-        Get.snackbar("Logout", "Bye Bye", snackPosition: SnackPosition.BOTTOM);
-      },
-    );
-  }
+Future<void> logout() async {
+  Get.defaultDialog(
+    title: "Konfirmasi",
+    middleText: "Apakah kamu yakin ingin Log out? :(",
+    textCancel: "NO",
+    textConfirm: "Yes",
+    confirmTextColor: Colors.white,
+    onConfirm: () async {
+      // --- Hapus token FCM ---
+
+      // --- (Opsional) hapus data login user ---
+      await SharedPreferences.getInstance().then((prefs) => prefs.clear());
+
+      // --- Pindah ke halaman login ---
+      Get.offAllNamed(AppRoutes.loginapi);
+
+      Get.snackbar("Logout", "Bye Bye", snackPosition: SnackPosition.BOTTOM);
+    },
+  );
+}
+
 }

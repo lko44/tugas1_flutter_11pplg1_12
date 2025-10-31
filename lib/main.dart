@@ -1,28 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:latihan1_11pplg1/bindings/football_binding.dart';
-import 'package:latihan1_11pplg1/routes/pages.dart';
-import 'package:latihan1_11pplg1/routes/routes.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:latihan1_11pplg1/firebase_options.dart';
+import 'package:latihan1_11pplg1/app.dart';
+import 'package:latihan1_11pplg1/controllers/notification_controller.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  Get.put(NotificationController());
+
   runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      // home: CalculatorPage(),
-      initialRoute: AppRoutes.splashscreen,
-      getPages: AppPages.pages,
-      initialBinding: FootballBinding(),
-    );
-  }
 }
