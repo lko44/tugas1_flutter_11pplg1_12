@@ -13,7 +13,7 @@ class CharacterController extends GetxController {
     super.onInit();
   }
 
-void fetchCharacterList() async {
+fetchCharacterList() async {
   try {
     isLoading(true);
     final data = await Characternetwork.fetchCharacters();

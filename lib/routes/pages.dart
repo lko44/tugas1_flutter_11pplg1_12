@@ -8,6 +8,7 @@ import 'package:latihan1_11pplg1/bindings/football_responsicve_binding.dart';
 import 'package:latihan1_11pplg1/bindings/hsr_list_binding.dart';
 import 'package:latihan1_11pplg1/bindings/login_api_binding.dart';
 import 'package:latihan1_11pplg1/bindings/login_binding.dart';
+import 'package:latihan1_11pplg1/bindings/premier_bindings.dart';
 import 'package:latihan1_11pplg1/bindings/splashscreen_binding.dart';
 import 'package:latihan1_11pplg1/bindings/uma_binding.dart';
 import 'package:latihan1_11pplg1/pages/contact_page.dart';
@@ -21,6 +22,8 @@ import 'package:latihan1_11pplg1/pages/football_edit_page.dart';
 import 'package:latihan1_11pplg1/pages/football_page.dart';
 import 'package:latihan1_11pplg1/pages/main_menu_page.dart';
 import 'package:latihan1_11pplg1/pages/mobile/football_mobile_page.dart';
+import 'package:latihan1_11pplg1/pages/notifications_page.dart';
+import 'package:latihan1_11pplg1/pages/premier_table_page.dart';
 import 'package:latihan1_11pplg1/pages/profile_page.dart';
 import 'package:latihan1_11pplg1/pages/spalshscreen_page.dart';
 import 'package:latihan1_11pplg1/pages/uma_list_page.dart';
@@ -54,12 +57,18 @@ class AppPages {
       page: () => ContactPage(),
       binding: ContactBinding(),
     ),
-    GetPage(name: AppRoutes.profilepage, page: () => ProfilePage()),
+    GetPage(
+      name: AppRoutes.profilepage,
+      page: () => ProfilePage(),
+      binding: LoginApiBinding(),
+    ),
     GetPage(name: AppRoutes.navbar, page: () => BottomNavPage()),
     GetPage(name: AppRoutes.mainmenu, page: () => MainMenuPage()),
-    GetPage(name: AppRoutes.examplescreen, 
-    page: () => ExamplePage(), 
-    binding: ExampleBinding()),
+    GetPage(
+      name: AppRoutes.examplescreen,
+      page: () => ExamplePage(),
+      binding: ExampleBinding(),
+    ),
 
     // GetPage(name: AppRoutes.register, page: () => MainMenuPage ()),
     GetPage(
@@ -72,13 +81,13 @@ class AppPages {
       page: () => FootballPage(),
       binding: FootballResponsicveBinding(),
     ),
-    
+
     GetPage(
       name: AppRoutes.loginapi,
       page: () => LoginApiPage(),
       binding: LoginApiBinding(),
     ),
-    
+
     GetPage(
       name: AppRoutes.hsrClist,
       page: () => HsrListPage(),
@@ -89,6 +98,15 @@ class AppPages {
       page: () => UmaListPage(),
       binding: UmaBinding(),
     ),
-
+    GetPage(
+      name: AppRoutes.notifications,
+      page: () => NotificationsPage(),
+      binding: null,
+    ),
+    GetPage(
+      name: AppRoutes.premiertable,
+      page: () => PremiereTablePage(),
+      binding: PremierBindings(),
+    ),
   ];
 }

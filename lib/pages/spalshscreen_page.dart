@@ -12,7 +12,7 @@ class SpalshscreenPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          child: Text("ini splash screen"),
+          child: Text("ini layar ciprat"),
         ),
       ),
     );

@@ -12,7 +12,20 @@
           "package_name": "com.example.latihan1_11pplg1"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "554181678051-o0lkrd4s5aufrs9lq9jnqc1pbt2779k2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.latihan1_11pplg1",
+            "certificate_hash": "15642885377f465a0656e69efd005b95b38e5b70"
+          }
+        },
+        {
+          "client_id": "554181678051-bp3grab21pqvemn0rl6f6ibff1hte203.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBkQPUNrVHMNRHlqSNPfLMsJA35zQWitt4"
@@ -20,7 +33,41 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554181678051-bp3grab21pqvemn0rl6f6ibff1hte203.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554181678051:android:052e95445aa5fac61846d6",
+        "android_client_info": {
+          "package_name": "com.example.latihan1_11pplg2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554181678051-bp3grab21pqvemn0rl6f6ibff1hte203.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkQPUNrVHMNRHlqSNPfLMsJA35zQWitt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554181678051-bp3grab21pqvemn0rl6f6ibff1hte203.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -107,6 +107,7 @@ class CalculatorPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
 
+
                   // Navigation Buttons
                   const Divider(),
                   const SizedBox(height: 10),
@@ -116,8 +117,10 @@ class CalculatorPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   _buildNavButton("⚽ To Football", AppRoutes.footballmobile),
+                  _buildNavButton("M To MAILBOX", AppRoutes.notifications),
                   _buildNavButton("🌌 HSR Character List", AppRoutes.hsrClist),
                   _buildNavButton("🐴 Uma Character List", AppRoutes.umaClist),
+                  _buildNavButton("PP Profile", AppRoutes.profilepage),
                   const SizedBox(height: 10),
                   _buildLogoutButton(),
                 ],

@@ -1,37 +1,24 @@
+import 'package:get/get.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:get/get.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-
-// Top-level background handler
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-  print("📬 Background message: ${message.messageId}");
-}
+import 'package:latihan1_11pplg1/models/local_notification.dart';
 
 class NotificationController extends GetxController {
-  final FirebaseMessaging _messaging = FirebaseMessaging.instance;
+  RxString fcmToken = "".obs;
+  RxList<LocalNotification> notifications = <LocalNotification>[].obs;
+
   final FlutterLocalNotificationsPlugin _localNotifications =
       FlutterLocalNotificationsPlugin();
-
-  var fcmToken = "".obs;
 
   @override
   void onInit() {
     super.onInit();
+    _initLocalNotif();
     _initFCM();
   }
 
-  Future<void> _initFCM() async {
-    await _messaging.requestPermission();
-
-    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
-    fcmToken.value = await _messaging.getToken() ?? "";
-    print("🔑 FCM Token: ${fcmToken.value}");
-
-    // Initialize local notifications
+  // ✅ 1. Setup Local Notification (Android Channel)
+  Future<void> _initLocalNotif() async {
     const AndroidInitializationSettings androidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
 
@@ -40,26 +27,58 @@ class NotificationController extends GetxController {
 
     await _localNotifications.initialize(initSettings);
 
-    // Foreground messages
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
-      print("📨 Foreground message received!");
-      print("Title: ${message.notification?.title}");
-      print("Body: ${message.notification?.body}");
+    const AndroidNotificationChannel channel = AndroidNotificationChannel(
+      'default_channel',
+      'General Notifications',
+      description: 'Used for foreground notifications',
+      importance: Importance.high,
+    );
 
-      // Show as real system notification
+    await _localNotifications
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(channel);
+  }
+
+  // ✅ 2. Setup FCM
+  Future<void> _initFCM() async {
+    // ✅ Token
+    String? token = await FirebaseMessaging.instance.getToken();
+    fcmToken.value = token ?? "";
+    print("🔑 FCM TOKEN (controller): $token");
+
+    // ✅ Foreground handler → real notification
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
+      final title = message.notification?.title ?? "No Title";
+      final body = message.notification?.body ?? "No Body";
+
+      // ✅ Simpan ke history
+      notifications.add(
+        LocalNotification(
+          title: title,
+          body: body,
+          timestamp: DateTime.now(),
+        ),
+      );
+
+      // ✅ Tampilkan sebagai NOTIFIKASI SISTEM
       await _localNotifications.show(
-        message.notification.hashCode,
-        message.notification?.title ?? "Notification",
-        message.notification?.body ?? "No body",
+        message.hashCode,
+        title,
+        body,
         const NotificationDetails(
           android: AndroidNotificationDetails(
-            'default_channel', // channel id
-            'General Notifications', // channel name
+            'default_channel',
+            'General Notifications',
             importance: Importance.max,
             priority: Priority.high,
           ),
         ),
       );
     });
+  }
+
+  void clearNotifications() {
+    notifications.clear();
   }
 }

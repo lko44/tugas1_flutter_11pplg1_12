@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:latihan1_11pplg1/app.dart';
 
 import 'package:latihan1_11pplg1/main.dart';
 

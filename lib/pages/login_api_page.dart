@@ -4,7 +4,6 @@ import 'package:latihan1_11pplg1/controllers/login_api_controller.dart';
 import 'package:latihan1_11pplg1/widgets/button.dart';
 import 'package:latihan1_11pplg1/widgets/widget_textField.dart';
 
-
 class LoginApiPage extends StatelessWidget {
   LoginApiPage({super.key});
   final controller = Get.find<LoginApiController>();
@@ -15,7 +14,8 @@ class LoginApiPage extends StatelessWidget {
       backgroundColor: Colors.grey[100],
       resizeToAvoidBottomInset: true, // ⬅️ penting
       body: SafeArea(
-        child: SingleChildScrollView( // ⬅️ biar gak overflow saat keyboard muncul
+        child: SingleChildScrollView(
+          // ⬅️ biar gak overflow saat keyboard muncul
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,10 +32,7 @@ class LoginApiPage extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 "Login to continue using the app",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black54,
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.black54),
               ),
               const SizedBox(height: 40),
 
@@ -70,21 +67,47 @@ class LoginApiPage extends StatelessWidget {
 
               const SizedBox(height: 24),
               // Footer text
-              Center(
-                child: TextButton(
-                  onPressed: () {
-                    Get.snackbar(
-                      'Nihahahaha',
-                      'Kasihan deh loh lupa passwordnya :V',
-                      snackPosition: SnackPosition.BOTTOM,
-                    );
-                  },
-                  child: const Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      color: Colors.blueAccent,
-                      fontSize: 15,
-                    ),
+              // Center(
+              //   child: TextButton(
+              //     onPressed: () {
+              //       Get.snackbar(
+              //         'Nihahahaha',
+              //         'Kasihan deh loh lupa passwordnya :V',
+              //         snackPosition: SnackPosition.BOTTOM,
+              //       );
+              //     },
+              //     child: const Text(
+              //       "Forgot Password?",
+              //       style: TextStyle(
+              //         color: Colors.blueAccent,
+              //         fontSize: 15,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              GestureDetector(
+                onTap: () => controller.loginWithGoogle(),
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.grey.shade300),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset("assets/google.png", height: 24),
+                      SizedBox(width: 12),
+                      Text(
+                        "Login with Google",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

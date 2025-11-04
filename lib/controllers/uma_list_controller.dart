@@ -12,7 +12,7 @@ class UmaListController extends GetxController {
     fetchUmaList();
   }
 
-  void fetchUmaList() async {
+  fetchUmaList() async {
     try {
       isLoading(true);
 

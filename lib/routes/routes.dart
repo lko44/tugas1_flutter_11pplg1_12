@@ -15,5 +15,7 @@ class AppRoutes{
   static const loginapi = "/loginapi";
   static const hsrClist = "/hsrClist";
   static const umaClist = "/umaClist";
+  static const notifications = "/notifications";
+  static const premiertable = "/premiertable";
   //others here
 }
