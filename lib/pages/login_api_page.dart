@@ -97,7 +97,10 @@ class LoginApiPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset("assets/google.png", height: 24),
+                      Image.network(
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2sSeQqjaUTuZ3gRgkKjidpaipF_l6s72lBw&s",
+                        height: 24,
+                      ),
                       SizedBox(width: 12),
                       Text(
                         "Login with Google",

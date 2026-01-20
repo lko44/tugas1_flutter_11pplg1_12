@@ -155,7 +155,7 @@ class LoginApiController extends GetxController {
       await prefs.setString("google_photo", googlePhoto.value);
       await prefs.setBool("google_logged_in", true);
 
-      Get.snackbar("Success", "Login Google sukses!");
+     Get.snackbar("Success", "Welcome, ${googleName.value}!");
       Get.offAllNamed(AppRoutes.calculator);
     } catch (e) {
       print("Google Sign-In Error: $e");
